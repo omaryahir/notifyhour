@@ -1,3 +1,4 @@
+# -*- encoding:utf8 -*-
 # This software send every hour some notification in Mac OSX
 # It requires: https://github.com/setem/pync
 
@@ -5,8 +6,12 @@ from os import system
 from pync import Notifier
 import datetime 
 
-print "Working process ...   [Press Ctrl+C for exit]"
+print ""
+print "NotifyHour"
+print ""
 print "Powered by Python, Mac OSX & https://github.com/setem/pync"
+print "Working process ...   [Press Ctrl+C for exit]"
+
 
 enviemensaje = False
 activaalarma = False
@@ -14,10 +19,10 @@ now = datetime.datetime.now()
 while now.hour<=18:
     now = datetime.datetime.now()
     if now.minute == 0:
-        if not enviemensaje:
-        	system('say Omar, descansa un momento tus ojos, recuerda Dios te ama.')
+        if not enviemensaje:        	
             mensaje = "Dios te ama, descansa un momento "+str(now.hour)+":"+str(now.minute)        
             Notifier.notify(str(mensaje))
+            system('say Omar, descansa un momento tus ojos, recuerda Dios te ama.')
             enviemensaje=True
             activaalarma=True
     
@@ -29,4 +34,6 @@ while now.hour<=18:
     		system('say Listo, ahora puedes continuar trabajando, debes tener fe, todo estará bien.')
     		activaalarma=False
 
-Notifier.notify("Sea como sea Omar hiciste tu mejor esfuerzo, vamonos..!")
+mensaje = "Sea como sea Omar hiciste tu mejor esfuerzo, vamonos..!"
+Notifier.notify(mensaje)
+system('say '+mensaje)
