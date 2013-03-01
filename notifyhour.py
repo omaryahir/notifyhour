@@ -16,7 +16,7 @@ print "Working process ...   [Press Ctrl+C for exit]"
 enviemensaje = False
 activaalarma = False
 now = datetime.datetime.now()
-while now.hour<=18:
+while now.hour<18:
     now = datetime.datetime.now()
     if now.minute == 0:
         if not enviemensaje:        	
@@ -34,6 +34,6 @@ while now.hour<=18:
     		system('say Listo, ahora puedes continuar trabajando, debes tener fe, todo estará bien.')
     		activaalarma=False
 
-mensaje = "Sea como sea Omar hiciste tu mejor esfuerzo, vamonos..!"
+mensaje = "Sea como sea Omar hiciste tu mejor esfuerzo, es hora de guardar y ¡vamonos!"
 Notifier.notify(mensaje)
 system('say '+mensaje)
