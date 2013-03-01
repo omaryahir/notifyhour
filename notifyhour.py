@@ -12,9 +12,13 @@ print ""
 print "Powered by Python, Mac OSX & https://github.com/setem/pync"
 print "Working process ...   [Press Ctrl+C for exit]"
 
+mensaje = 'Buen día Omar, todo estará bien vamos a trabajar.'
+Notifier.notify(mensaje)
+system('say '+mensaje)
 
 enviemensaje = False
 activaalarma = False
+comida = True
 now = datetime.datetime.now()
 while now.hour<18:
     now = datetime.datetime.now()
@@ -33,6 +37,13 @@ while now.hour<18:
     	if activaalarma:    		
     		system('say Listo, ahora puedes continuar trabajando, debes tener fe, todo estará bien.')
     		activaalarma=False
+
+    if now.hour == 14:
+        if now.minute >=30:
+            if comida:
+                system('say Omar, por favor ya ve a comer recuerda el boleto.')
+                comida=False
+
 
 mensaje = "Sea como sea Omar hiciste tu mejor esfuerzo, es hora de guardar y ¡vamonos!"
 Notifier.notify(mensaje)
